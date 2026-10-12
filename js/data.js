@@ -8,6 +8,7 @@ window.PORTFOLIO = {
 
   githubUser: 'HotVaDer',
   avatar: 'https://github.com/HotVaDer.png?size=400',
+  photo: 'assets/img/me.jpg',
   email: 'skyria05@ucy.ac.cy',
   phone: '+357 99 216265',
   linkedin: '', // TODO: full LinkedIn URL (hidden until set)

@@ -3,34 +3,34 @@
 window.ART = (() => {
   let uid = 0;
 
-  // ---------- 991.2 911 GT2 RS side profile (viewBox 0 0 600 210, facing left) ----------
-  // Proportions from the real car at ~128 units per metre: 1.0 m front overhang,
-  // 2.45 m wheelbase, 1.15 m rear overhang (engine behind the rear axle), 1.3 m tall.
+  // ---------- 991.2 911 GT2 RS side profile (viewBox 30 0 530 210, facing left) ----------
+  // Based on the real car's proportions (2.45 m wheelbase, 1.3 m tall), with the front and
+  // rear overhangs tightened a little for a punchier, more compact stance.
   const FRONT = { x: 134, y: 156, r: 44 };
   const REAR = { x: 449, y: 154, r: 46 };
   const BODY = [
-    'M 12,182 L 5,178',
-    'C 3,165 4,150 9,140 C 14,130 24,123 36,112',           // nose and bumper top
-    'C 46,100 60,90 84,87 C 110,84 150,84 180,86',          // fender rising past the headlight to its crest
-    'C 196,87 208,89 218,90',                               // cowl
-    'C 244,70 270,46 300,37 C 312,33 322,32 332,32',        // windshield into the roof
-    'C 372,34 402,45 432,60 C 462,74 500,86 534,92',        // the 911 flyline over the engine
-    'C 556,95 568,97 576,100 C 586,103 592,110 593,118',    // engine lid into the rounded tail
-    'C 594,135 593,152 590,164 C 588,174 584,180 578,183',  // rear face
-    'L 490,186 A 52 52 0 1 0 408 186 L 174,186',            // rear arch, sill
-    'A 50 50 0 1 0 94 186 L 40,187 Z',                      // front arch, chin
+    'M 43.2 182 L 38.8 178',
+    'C 37.6 165 38.2 150 41.3 140 C 44.4 130 50.6 123 58 112',           // nose and bumper top
+    'C 64.2 100 72.9 90 87.8 87 C 110 84 150 84 180 86',          // fender rising past the headlight to its crest
+    'C 196 87 214 89 230 90',                               // cowl
+    'C 254 72 278 50 306 40 C 318 36 328 35 338 35',        // windshield into the roof
+    'C 368 37 394 48 420 62 C 452 77 492 87 516.4 92',        // the 911 flyline over the engine
+    'C 529.6 95 536.8 97 541.6 100 C 547.6 103 551.2 110 551.8 118',    // engine lid into the rounded tail
+    'C 552.4 135 551.8 152 550 164 C 548.8 174 546.4 180 542.8 183',  // rear face
+    'L 490 186 A 52 52 0 1 0 408 186 L 174 186',            // rear arch, sill
+    'A 50 50 0 1 0 94 186 L 60.5 187 Z',                      // front arch, chin
   ].join(' ');
-  const GLASS = 'M 228,91 C 250,72 274,50 302,41 C 316,37 330,36 340,37 C 370,40 396,52 418,66 C 422,70 422,74 417,77 C 380,82 300,88 228,91 Z';
-  const ROOF = 'M 300,37 C 312,33 322,32 332,32 C 360,33 382,39 402,48 L 398,52 C 380,44 360,39 340,37 C 330,36 316,37 302,41 Z';
-  const QUARTER = 'M 352,38 L 366,86';
-  const DOORS = 'M 224,93 C 225,130 226,160 228,184 M 360,88 C 364,120 365,155 362,184';
-  const WING = 'M 508,54 C 520,47 552,44 586,41 L 589,48 C 556,51 528,55 510,58 Z';
-  const GURNEY = 'M 584,41 L 588,35 L 590,47 L 588,48 Z';
-  const ENDPLATE = 'M 556,35 L 591,32 C 593,41 594,50 593,59 L 559,62 C 557,53 556,44 556,35 Z';
-  const PYLON = 'M 524,90 L 532,56 L 539,55 L 533,91 Z';
-  const INTAKE = 'M 372,98 C 382,94 396,93 406,94 L 402,108 C 393,107 383,108 370,111 Z';
-  const HEADLIGHT = { cx: 63, cy: 103, rx: 22, ry: 8, rot: -28 };
-  const MIRROR = 'M 232,76 C 226,76 222,80 224,84 C 230,86 240,85 244,82 C 244,78 238,76 232,76 Z';
+  const GLASS = 'M 238 91 C 258 73 282 52 308 44 C 320 40 332 39 342 40 C 366 43 388 54 404 66 C 408 70 407 74 402 76 C 360 82 300 88 238 91 Z';
+  const ROOF = 'M 306 40 C 318 36 328 35 338 35 C 356 36 372 41 388 49 L 384 53 C 370 46 356 42 342 40 C 332 39 320 40 308 44 Z';
+  const QUARTER = 'M 352 41 L 364 84';
+  const DOORS = 'M 224 93 C 225 130 226 160 228 184 M 360 88 C 364 120 365 155 362 184';
+  const WING = 'M 500.8 54 C 508 47 527.2 44 547.6 41 L 549.4 48 C 529.6 51 512.8 55 502 58 Z';
+  const GURNEY = 'M 546.4 41 L 548.8 35 L 550 47 L 548.8 48 Z';
+  const ENDPLATE = 'M 529.6 35 L 550.6 32 C 551.8 41 552.4 50 551.8 59 L 531.4 62 C 530.2 53 529.6 44 529.6 35 Z';
+  const PYLON = 'M 510.4 90 L 515.2 56 L 519.4 55 L 515.8 91 Z';
+  const INTAKE = 'M 372 98 C 382 94 396 93 406 94 L 402 108 C 393 107 383 108 370 111 Z';
+  const HEADLIGHT = { cx: 76, cy: 101, rx: 16, ry: 7.5, rot: -38 };
+  const MIRROR = 'M 244 78 C 238 78 234 82 236 86 C 242 88 252 87 256 84 C 256 80 250 78 244 78 Z';
 
   const polar = (cx, cy, r, deg) => {
     const a = (deg * Math.PI) / 180;
@@ -77,15 +77,15 @@ window.ART = (() => {
         `<circle cx="${w.x}" cy="${w.y}" r="${w.r}"/><circle cx="${w.x}" cy="${w.y}" r="${(w.r * 0.74).toFixed(1)}"/><circle cx="${w.x}" cy="${w.y}" r="${(w.r * 0.2).toFixed(1)}"/>`
       ).join('');
       const h = HEADLIGHT;
-      return `<svg class="car car--sketch" viewBox="0 0 600 210" aria-hidden="true">
+      return `<svg class="car car--sketch" viewBox="30 0 530 210" aria-hidden="true">
         <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="${BODY}"/><path d="${GLASS}"/><path d="${QUARTER}"/><path d="${DOORS}"/>
           <path d="${WING}"/><path d="${ENDPLATE}"/><path d="${PYLON}"/><path d="${INTAKE}"/>
           <ellipse cx="${h.cx}" cy="${h.cy}" rx="${h.rx}" ry="${h.ry}" transform="rotate(${h.rot} ${h.cx} ${h.cy})"/>
-          <path d="${MIRROR} M 238,84 L 242,91"/>
+          <path d="${MIRROR} M 250,86 L 253,92"/>
           ${wheels}
-          <path d="M 4,202 C 120,199 300,204 596,200" stroke-width="1.3" opacity=".6"/>
-          <path d="M 600,128 l -70,0 M 600,146 l -46,0 M 610,40 l -50,0" stroke-width="1.3" opacity=".45"/>
+          <path d="M 38.2 202 C 120 199 300 204 553.6 200" stroke-width="1.3" opacity=".6"/>
+          <path d="M 556 128 l -70 0 M 556 146 l -46 0 M 562 40 l -50 0" stroke-width="1.3" opacity=".45"/>
         </g>
       </svg>`;
     }
@@ -93,7 +93,7 @@ window.ART = (() => {
     const id = 'car' + ++uid;
     const u = (n) => `url(#${id}-${n})`;
     const h = HEADLIGHT;
-    return `<svg class="car" viewBox="0 0 600 210" role="img" aria-label="Illustration of a Lava Orange 911 GT2 RS">
+    return `<svg class="car" viewBox="30 0 530 210" role="img" aria-label="Illustration of a Lava Orange 911 GT2 RS">
       <defs>
         <linearGradient id="${id}-paint" x1="0" y1="30" x2="0" y2="190" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#ffa060"/><stop offset=".3" stop-color="#ff6a1f"/><stop offset=".62" stop-color="#f2540f"/><stop offset="1" stop-color="#a83208"/>
@@ -114,53 +114,53 @@ window.ART = (() => {
         <clipPath id="${id}-body"><path d="${BODY}"/></clipPath>
       </defs>
 
-      <ellipse cx="300" cy="202" rx="290" ry="7" fill="#000" opacity=".5"/>
+      <ellipse cx="295" cy="202" rx="258" ry="7" fill="#000" opacity=".5"/>
       <g clip-path="url(#${id}-wells)" fill="#070707"><circle cx="134" cy="156" r="50"/><circle cx="449" cy="154" r="52"/></g>
       ${wheel(FRONT)}${wheel(REAR)}
 
-      <path d="${PYLON}" fill="#1c1c1c" transform="translate(14 1)" opacity=".7"/>
+      <path d="${PYLON}" fill="#1c1c1c" transform="translate(8 1)" opacity=".7"/>
       <path d="${PYLON}" fill="#222"/>
 
       <path d="${BODY}" fill="${u('paint')}"/>
       <g clip-path="url(#${id}-body)">
         <rect x="0" y="130" width="600" height="60" fill="${u('low')}"/>
-        <path d="M 30,122 C 60,100 100,90 150,89 C 230,90 320,92 400,90 C 440,88 470,88 500,91 C 540,95 566,99 592,108 L 592,116 C 566,107 540,102 500,98 C 470,95 440,95 400,97 C 320,99 230,97 150,96 C 104,97 66,108 34,128 Z" fill="${u('sheen')}"/>
-        <path d="M 52,98 C 84,88 140,86 210,90 M 360,92 C 400,86 430,84 456,86 C 500,90 540,96 572,101" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+        <path d="M 54.3 122 C 72.9 100 100 90 150 89 C 230 90 320 92 400 90 C 440 88 470 88 496 91 C 520 95 535.6 99 551.2 108 L 551.2 116 C 535.6 107 520 102 496 98 C 470 95 440 95 400 97 C 320 99 230 97 150 96 C 104 97 76.6 108 56.8 128 Z" fill="${u('sheen')}"/>
+        <path d="M 68 98 C 87.8 88 140 86 210 90 M 360 92 C 400 86 430 84 456 86 C 496 90 520 96 539.2 101" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
       </g>
 
       <path d="${GLASS}" fill="${u('glass')}"/>
       <path d="${QUARTER}" stroke="#0d0d0d" stroke-width="4"/>
       <path d="${ROOF}" fill="${u('cf')}"/>
-      <path d="M 300,48 C 316,43 334,42 348,43 L 344,49 C 330,48 314,49 300,54 Z" fill="#fff" opacity=".08"/>
+      <path d="M 300 48 C 316 43 334 42 348 43 L 344 49 C 330 48 314 49 300 54 Z" fill="#fff" opacity=".08"/>
 
       <path d="${DOORS}" fill="none" stroke="rgba(0,0,0,.38)" stroke-width="1.2"/>
-      <path d="M 318,104 L 342,103" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round"/>
-      <path d="M 238,84 L 242,91" stroke="#151515" stroke-width="2.4"/>
+      <path d="M 318 104 L 342 103" stroke="#1a1a1a" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M 250 86 L 253 92" stroke="#151515" stroke-width="2.4"/>
       <path d="${MIRROR}" fill="${u('paint')}" stroke="rgba(0,0,0,.35)" stroke-width=".8"/>
 
       <path d="${INTAKE}" fill="#0c0c0c"/>
-      <path d="M 372,98 C 382,94 396,93 406,94" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+      <path d="M 372 98 C 382 94 396 93 406 94" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
 
       <ellipse cx="${h.cx}" cy="${h.cy}" rx="${h.rx}" ry="${h.ry}" transform="rotate(${h.rot} ${h.cx} ${h.cy})" fill="#e9eef2" stroke="#1d1d1d" stroke-width="1.6"/>
       <ellipse cx="${h.cx - 4}" cy="${h.cy + 1}" rx="${h.rx * 0.55}" ry="${h.ry * 0.55}" transform="rotate(${h.rot} ${h.cx} ${h.cy})" fill="#9fcff5" opacity=".55"/>
       <g fill="#fff">${[-12, -4, 4, 12].map((d) => { const [px, py] = polar(h.cx, h.cy, Math.abs(d) * 0.9, h.rot + (d < 0 ? 180 : 0)); return `<circle cx="${px}" cy="${py}" r="1.5"/>`; }).join('')}</g>
 
-      <path d="M 10,142 C 18,139 34,139 48,142 L 50,166 C 36,168 22,168 11,166 Z" fill="#101010"/>
-      <path d="M 14,148 L 46,148 M 13,154 L 47,154 M 13,160 L 48,160" stroke="#2b2b2b" stroke-width="1"/>
-      <path d="M 1,183 L 72,185 L 72,190 L 3,190 Z" fill="${u('cf')}"/>
-      <path d="M 176,180 L 406,178 L 408,186 L 174,186 Z" fill="${u('cf')}"/>
-      <path d="M 494,183 L 587,177 L 587,188 L 494,190 Z" fill="${u('cf')}"/>
-      <path d="M 506,146 L 518,144 L 520,170 L 508,172 Z" fill="#0e0e0e"/>
-      <rect x="583" y="167" width="11" height="7" rx="2" fill="#a8adb3" stroke="#555" stroke-width=".8"/>
-      <path d="M 574,101 C 583,103 590,108 592,115 L 592,121 C 588,115 582,111 573,108 Z" fill="#d1121f"/>
-      <path d="M 440,66 C 480,82 520,90 560,96" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
+      <path d="M 41.9 142 C 46.9 139 56.8 139 65.5 142 L 66.7 166 C 58 168 49.4 168 42.5 166 Z" fill="#101010"/>
+      <path d="M 44.4 148 L 64.2 148 M 43.8 154 L 64.9 154 M 43.8 160 L 65.5 160" stroke="#2b2b2b" stroke-width="1"/>
+      <path d="M 36.3 183 L 80.4 185 L 80.4 190 L 37.6 190 Z" fill="${u('cf')}"/>
+      <path d="M 176 180 L 406 178 L 408 186 L 174 186 Z" fill="${u('cf')}"/>
+      <path d="M 492.4 183 L 548.2 177 L 548.2 188 L 492.4 190 Z" fill="${u('cf')}"/>
+      <path d="M 499.6 146 L 506.8 144 L 508 170 L 500.8 172 Z" fill="#0e0e0e"/>
+      <rect x="545.8" y="167" width="11" height="7" rx="2" fill="#a8adb3" stroke="#555" stroke-width=".8"/>
+      <path d="M 540.4 101 C 545.8 103 550 108 551.2 115 L 551.2 121 C 548.8 115 545.2 111 539.8 108 Z" fill="#d1121f"/>
+      <path d="M 440 66 C 480 82 508 90 532 96" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="1"/>
 
       <text x="246" y="170" font-family="'Inter', sans-serif" font-style="italic" font-weight="800" font-size="17" letter-spacing="-.3" fill="#141414">GT2 RS</text>
 
       <path d="${WING}" fill="${u('cf')}" stroke="rgba(255,255,255,.25)" stroke-width=".8"/>
       <path d="${GURNEY}" fill="#111"/>
       <path d="${ENDPLATE}" fill="${u('cf')}" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
-      <path d="M 558,40 L 591,37" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+      <path d="M 530.8 40 L 550.6 37" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
     </svg>`;
   }
 

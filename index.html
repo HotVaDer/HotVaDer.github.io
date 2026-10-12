@@ -87,8 +87,9 @@
     <section class="hero" id="top">
       <div class="speed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="hero__sketch" id="hero-sketch" aria-hidden="true"></div>
-      <div class="lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-      <p class="hero__go" aria-hidden="true">Lights out and away we go</p>
+      <!-- After the intro the lights become a reaction game (js/lights.js) -->
+      <button class="lights" id="lights" type="button" disabled aria-label="Reaction test. Press to start the lights, then press again the moment they turn green."><span></span><span></span><span></span><span></span><span></span></button>
+      <p class="hero__go" id="lights-status" aria-live="polite">Lights out and away we go</p>
       <h1 class="hero__name">
         <span class="rise" style="--d:.1s">Stylianos</span>
         <span class="rise" style="--d:.22s">Kyriakou<span class="dot">.</span></span>
@@ -181,6 +182,7 @@
   <script src="js/data.js" defer></script>
   <script src="js/art.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/lights.js" defer></script>
   <script src="js/notebook.js" defer></script>
 </body>
 </html>

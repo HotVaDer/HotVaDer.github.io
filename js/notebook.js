@@ -22,12 +22,12 @@
   const STICKERS = [
     { id: 'label', x: 9, y: 4, w: 50, r: -3, html: `<div class="stk-label"><b>${esc(D.firstName)} ${lastInitial}.</b><small>nº 911 · ideas &amp; code</small></div>` },
     { id: 'checker', x: 67, y: 6, w: 21, r: 12, html: '<div class="stk-checker"></div>' },
-    { id: 'car', x: 4, y: 37, w: 92, r: -4, cls: 'stk--diecut stk--car', html: A.car() },
-    { id: 'track', x: 6, y: 67, w: 36, r: -6, cls: 'stk--round', html: A.track() },
-    { id: 'tacho', x: 50, y: 67.5, w: 31, r: 5, cls: 'stk--round', html: A.tacho() },
-    { id: 'roundel', x: 37, y: 85, w: 16, r: -10, html: '<div class="stk-roundel">911</div>' },
-    { id: 'oval', x: 66, y: 87, w: 24, r: 8, html: '<div class="stk-oval">GT2RS</div>' },
-    { id: 'hazard', x: -6, y: 92.5, w: 48, r: -7, html: '<div class="stk-hazard"><span>WEISSACH</span></div>' },
+    { id: 'car', x: 6, y: 34, w: 88, r: -4, cls: 'stk--diecut stk--car', html: A.car() },
+    { id: 'track', x: 6, y: 69.5, w: 36, r: -6, cls: 'stk--round', html: A.track() },
+    { id: 'tacho', x: 50, y: 69.5, w: 31, r: 5, cls: 'stk--round', html: A.tacho() },
+    { id: 'roundel', x: 37, y: 86.5, w: 16, r: -10, html: '<div class="stk-roundel">911</div>' },
+    { id: 'oval', x: 66, y: 88, w: 24, r: 8, html: '<div class="stk-oval">GT2RS</div>' },
+    { id: 'hazard', x: -6, y: 95, w: 48, r: -7, html: '<div class="stk-hazard"><span>WEISSACH</span></div>' },
   ];
 
   let saved = {};
@@ -85,7 +85,7 @@
     <div class="about-grid">
       <figure class="polaroid">
         <span class="tape"></span>
-        <img src="${esc(D.avatar)}" alt="${esc(D.name)}" width="400" height="400" loading="lazy" onerror="this.outerHTML='<div class=&quot;polaroid__ph&quot;>${initials(D.name)}</div>'">
+        <img src="${esc(D.photo || D.avatar)}" alt="${esc(D.name)} next to a Porsche 911" width="800" height="800" loading="lazy" onerror="this.outerHTML='<div class=&quot;polaroid__ph&quot;>${initials(D.name)}</div>'">
         <figcaption>that's me</figcaption>
       </figure>
       <div>
