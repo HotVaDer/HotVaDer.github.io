@@ -138,7 +138,7 @@ window.ART = (() => {
       <defs><path id="${id}" d="M 15,50 A 35 35 0 0 1 85,50"/></defs>
       <circle cx="50" cy="50" r="48" fill="#f7f6f2"/>
       <circle cx="50" cy="50" r="44" fill="none" stroke="#111" stroke-width="1.2"/>
-      <text font-family="'DM Mono', monospace" font-size="7.4" letter-spacing="1.6" fill="#111"><textPath href="#${id}" startOffset="50%" text-anchor="middle">NORDSCHLEIFE</textPath></text>
+      <text font-family="'DM Mono', monospace" font-size="7.4" letter-spacing="1.6" fill="#111"><textPath href="#${id}" startOffset="50%" text-anchor="middle">NÜRBURGRING</textPath></text>
       <g transform="translate(50 52) scale(.6) translate(-54 -53)">
         <path d="${loop}" fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
         <path d="${loop}" fill="none" stroke="#ff5a1f" stroke-width="1.6" stroke-dasharray="3 5"/>

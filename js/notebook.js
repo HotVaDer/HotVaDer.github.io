@@ -26,7 +26,7 @@
     { id: 'track', x: 6, y: 67, w: 36, r: -6, cls: 'stk--round', html: A.track() },
     { id: 'tacho', x: 50, y: 67.5, w: 31, r: 5, cls: 'stk--round', html: A.tacho() },
     { id: 'roundel', x: 37, y: 85, w: 16, r: -10, html: '<div class="stk-roundel">911</div>' },
-    { id: 'cy', x: 71, y: 87, w: 19, r: 8, html: '<div class="stk-oval">CY</div>' },
+    { id: 'oval', x: 66, y: 87, w: 24, r: 8, html: '<div class="stk-oval">GT2RS</div>' },
     { id: 'hazard', x: -6, y: 92.5, w: 48, r: -7, html: '<div class="stk-hazard"><span>WEISSACH</span></div>' },
   ];
 
