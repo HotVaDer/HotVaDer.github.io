@@ -29,9 +29,13 @@ Or use the VS Code **Live Server** extension (recommended in `.vscode/`).
 
 ## Deploy
 
-1. Create a public repo named **`HotVaDer.github.io`** on GitHub.
-2. Push this folder to its `main` branch.
-3. Go to the repo's **Settings → Pages** and set **Source** to **GitHub Actions**. The workflow in `.github/workflows/deploy.yml` then publishes the site on every push.
+GitHub Pages serves the `main` branch as-is (Settings → Pages → Deploy from a branch → `main` / root), so publishing is just:
+
+```bash
+git push
+```
+
+The live site updates a minute or so later.
 
 ## Customize
 
