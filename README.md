@@ -13,7 +13,8 @@ js/data.js        ← edit this: bio, skills, projects, contact links, notes
 js/art.js         hand-drawn SVG art: the car, stickers, stopwatch, key fob, skid marks
 js/notebook.js    builds the notebook pages and runs the 3D page flips
 js/main.js        shared helpers, lap timer, paddock pass, footer
-assets/img/       favicon, project screenshots
+assets/img/       favicon, social preview, project screenshots
+assets/fonts/     self-hosted fonts (css/fonts.css)
 404.html          not-found page
 ```
 

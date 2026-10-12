@@ -21,6 +21,12 @@ window.SITE = (() => {
   const D = window.PORTFOLIO;
   const { esc, links, linkAttrs } = window.SITE;
 
+  // ---- Artwork drawn once by art.js ----
+  document.querySelector('.prop--watch').innerHTML = window.ART.stopwatch();
+  document.querySelector('.prop--key').innerHTML = window.ART.key();
+  document.getElementById('skid').innerHTML = window.ART.skid();
+  document.getElementById('hero-sketch').innerHTML = window.ART.car({ sketch: true });
+
   // ---- Hero lap timer: counts up and starts a new lap at the GT2 RS Nordschleife time ----
   const lap = document.getElementById('lap');
   const LAP_MS = 6 * 60e3 + 47.3e3;

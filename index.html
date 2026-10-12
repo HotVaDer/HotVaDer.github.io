@@ -64,12 +64,9 @@
   <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Fonts load without blocking the first paint -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&amp;family=DM+Mono:wght@400;500&amp;family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&amp;family=Racing+Sans+One&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&amp;family=DM+Mono:wght@400;500&amp;family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&amp;family=Racing+Sans+One&amp;display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&amp;family=DM+Mono:wght@400;500&amp;family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&amp;family=Racing+Sans+One&amp;display=swap"></noscript>
+  <!-- Fonts are self-hosted; the italic face of the big name is preloaded so it paints once, in the right font -->
+  <link rel="preload" href="assets/fonts/inter-italic-latin-UcCm3Fwr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -181,16 +178,9 @@
     </div>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/art.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/notebook.js"></script>
-  <script>
-    // Desk props are drawn once by art.js
-    document.querySelector('.prop--watch').innerHTML = ART.stopwatch();
-    document.querySelector('.prop--key').innerHTML = ART.key();
-    document.getElementById('skid').innerHTML = ART.skid();
-    document.getElementById('hero-sketch').innerHTML = ART.car({ sketch: true });
-  </script>
+  <script src="js/data.js" defer></script>
+  <script src="js/art.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/notebook.js" defer></script>
 </body>
 </html>
