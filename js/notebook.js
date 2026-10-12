@@ -85,7 +85,7 @@
     <div class="about-grid">
       <figure class="polaroid">
         <span class="tape"></span>
-        <img src="${esc(D.avatar)}" alt="${esc(D.name)}" loading="lazy" onerror="this.outerHTML='<div class=&quot;polaroid__ph&quot;>${initials(D.name)}</div>'">
+        <img src="${esc(D.avatar)}" alt="${esc(D.name)}" width="400" height="400" loading="lazy" onerror="this.outerHTML='<div class=&quot;polaroid__ph&quot;>${initials(D.name)}</div>'">
         <figcaption>that's me</figcaption>
       </figure>
       <div>
@@ -101,7 +101,7 @@
     <figure class="shot">
       <span class="tape tape--l"></span><span class="tape tape--r"></span>
       ${p.image
-        ? `<img src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy">`
+        ? `<img src="${esc(p.image)}" alt="Screenshot of the ${esc(p.title)} website" width="1440" height="810" loading="lazy" decoding="async">`
         : `<div class="shot__ph"><span>${initials(p.title)}</span><small>screenshot coming soon</small></div>`}
       ${p.note ? `<div class="sticky">${esc(p.note)}</div>` : ''}
     </figure>
