@@ -382,8 +382,8 @@
   }
 
   root.querySelector('.nb__hint').textContent = fine
-    ? '*click the cover to open · the stickers peel off, drag them around'
-    : '*tap the cover to open · swipe to turn the pages';
+    ? 'Click the cover to open it. The stickers peel off: drag them around.'
+    : 'Tap the cover to open it, then swipe to turn the pages.';
 
   render(false);
 })();

@@ -7,12 +7,12 @@ Plain HTML, CSS and JS. There's no build step. The centrepiece is a GT2 RS-theme
 ## Structure
 
 ```
-index.html        hero, the desk + notebook, contact card, footer
+index.html        start-lights hero, the notebook on the grid, paddock pass, footer
 css/style.css     all styles (colour tokens at the top)
 js/data.js        ← edit this: bio, skills, projects, contact links, notes
-js/art.js         hand-drawn SVG art: the car, stickers, pen, key fob
+js/art.js         hand-drawn SVG art: the car, stickers, stopwatch, key fob, skid marks
 js/notebook.js    builds the notebook pages and runs the 3D page flips
-js/main.js        shared helpers, contact card, footer
+js/main.js        shared helpers, lap timer, paddock pass, footer
 assets/img/       favicon, project screenshots
 404.html          not-found page
 ```

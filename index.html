@@ -17,41 +17,50 @@
 </head>
 <body>
   <header class="top">
-    <a class="top__logo" href="#top">stylianos kyriakou</a>
+    <a class="brand" href="#top" aria-label="Stylianos Kyriakou, back to top">
+      <span class="badge" aria-hidden="true">SK</span>
+      <span class="brand__name">Stylianos Kyriakou</span>
+    </a>
     <nav class="top__nav" aria-label="Main">
-      <a href="#notebook">/notebook/</a>
-      <a href="#notebook" data-goto="work">/work/</a>
-      <a href="#contact">/contact/</a>
+      <a href="#notebook">Notebook</a>
+      <a href="#notebook" data-goto="work">Work</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO: start lights + timing screen -->
     <section class="hero" id="top">
       <div class="speed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="hero__main">
-        <h1 class="hero__name">
-          <span class="rise" style="--d:.1s"><span class="outline">S</span>tylianos</span>
-          <span class="rise hero__last" style="--d:.22s"><span class="outline">K</span>yriakou<span class="dot">.</span></span>
-        </h1>
-        <p class="hero__meta rise" style="--d:.45s">is a limassol-based developer who turns</p>
-        <p class="hero__ideas rise" style="--d:.6s">ideas into <span class="code">code.</span></p>
-      </div>
-      <div class="hero__roles rise" style="--d:.35s" aria-hidden="true"><span>Developer</span><span>Builder</span></div>
+      <div class="hero__sketch" id="hero-sketch" aria-hidden="true"></div>
+      <div class="lights" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <p class="hero__go" aria-hidden="true">Lights out and away we go</p>
+      <h1 class="hero__name">
+        <span class="rise" style="--d:.1s">Stylianos</span>
+        <span class="rise" style="--d:.22s">Kyriakou<span class="dot">.</span></span>
+      </h1>
+      <p class="hero__lede rise" style="--d:.4s">Software developer from Limassol, Cyprus. I build web apps and online stores, from the first sketch to the live launch.</p>
+      <dl class="timing rise" style="--d:.55s">
+        <div><dt>No.</dt><dd>911</dd></div>
+        <div><dt>Base</dt><dd>Limassol, CY</dd></div>
+        <div><dt>Focus</dt><dd>Web &amp; e-commerce</dd></div>
+        <div><dt>Lap</dt><dd class="is-live" id="lap">0:00.000</dd></div>
+        <div><dt>Best</dt><dd>6:47.300</dd></div>
+      </dl>
       <a class="hero__cue" href="#notebook">
-        open my notebook
+        Open the notebook
         <svg viewBox="0 0 24 50" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 C8 16 16 28 12 46 M5 38 L12 47 L19 37"/></svg>
       </a>
     </section>
 
-    <!-- THE DESK + NOTEBOOK -->
+    <!-- THE NOTEBOOK, parked on a starting-grid slot -->
     <section class="desk" id="notebook" aria-label="Notebook">
-      <div class="mat" aria-hidden="true"></div>
-      <div class="prop prop--ring" aria-hidden="true"></div>
-      <div class="prop prop--pen" aria-hidden="true"></div>
+      <div class="skid" id="skid" aria-hidden="true"></div>
+      <div class="grid-slot" aria-hidden="true"><span class="grid-slot__pos">P1</span></div>
+      <div class="prop prop--watch" aria-hidden="true"></div>
       <div class="prop prop--key" aria-hidden="true"></div>
 
-      <p class="section-label">( the notebook )</p>
+      <p class="section-label"><b>S1</b>Sector 1 · The notebook</p>
 
       <div class="nb is-closed" id="nb">
         <button class="nb__arrow nb__arrow--prev" type="button" aria-label="Previous page"></button>
@@ -72,34 +81,34 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT: paddock pass on a lanyard -->
     <section class="contact" id="contact">
-      <p class="section-label">( contact )</p>
-      <div class="bcard" tabindex="0" aria-label="Contact card">
-        <div class="bcard__inner">
-          <div class="bcard__face bcard__front">
-            <p class="bcard__title">Let's work together!</p>
-            <div class="bcard__box"><small>CONTACT</small><strong>Stylianos Kyriakou</strong></div>
-            <p class="bcard__handle">/gh/HotVaDer</p>
+      <p class="section-label"><b>S2</b>Sector 2 · Contact</p>
+      <div class="pass">
+        <div class="pass__lanyard" aria-hidden="true"></div>
+        <div class="pass__card">
+          <span class="pass__hole" aria-hidden="true"></span>
+          <div class="pass__top"><span>PADDOCK PASS<br>ALL ACCESS</span><b>911</b></div>
+          <div class="pass__id">
+            <img class="pass__photo" id="pass-photo" alt="">
+            <div>
+              <p class="pass__name">Stylianos<br>Kyriakou</p>
+              <p class="pass__role">Developer · Team HotVaDer</p>
+            </div>
           </div>
-          <div class="bcard__face bcard__back carbon">
-            <div id="bcard-links"></div>
-            <div class="bcard__car" id="bcard-car" aria-hidden="true"></div>
-          </div>
+          <h2 class="pass__title">Got a project in mind? Get in touch.</h2>
+          <div class="pass__links" id="pass-links"></div>
+          <div class="pass__foot" id="pass-foot"><span>Nº 0911 · VALID 2026</span></div>
         </div>
       </div>
-      <p class="contact__hint" id="bcard-hint"></p>
     </section>
   </main>
 
   <footer class="foot">
     <div class="foot__inner">
-      <div>
-        <a class="foot__up" href="#top" aria-label="Back to top">↑</a>
-        <span class="foot__sig">stylianos kyriakou</span>
-      </div>
+      <a class="brand" href="#top"><span class="badge" aria-hidden="true">SK</span><span class="brand__name">Back to top ↑</span></a>
       <nav class="foot__links" id="foot-links" aria-label="Elsewhere"></nav>
-      <p class="foot__legal">all rights reserved · © <span id="year"></span> stylianos kyriakou</p>
+      <p class="foot__legal">© <span id="year"></span> Stylianos Kyriakou · Notebook idea inspired by <a href="https://kyoosangchoi.com" target="_blank" rel="noopener">kyoosangchoi.com</a></p>
     </div>
   </footer>
 
@@ -109,8 +118,10 @@
   <script src="js/notebook.js"></script>
   <script>
     // Desk props are drawn once by art.js
-    document.querySelector('.prop--pen').innerHTML = ART.pen();
+    document.querySelector('.prop--watch').innerHTML = ART.stopwatch();
     document.querySelector('.prop--key').innerHTML = ART.key();
+    document.getElementById('skid').innerHTML = ART.skid();
+    document.getElementById('hero-sketch').innerHTML = ART.car({ sketch: true });
   </script>
 </body>
 </html>

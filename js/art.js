@@ -163,21 +163,38 @@ window.ART = (() => {
   // ---------- Desk props ----------
   const metal = (id) => `<linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#5d5d5d"/><stop offset=".4" stop-color="#f4f4f4"/><stop offset=".6" stop-color="#c9c9c9"/><stop offset="1" stop-color="#4d4d4d"/></linearGradient>`;
 
-  const pen = () => `<svg viewBox="0 0 40 420" aria-hidden="true">
-    <defs>
-      <linearGradient id="pen-lac" x1="0" x2="1"><stop offset="0" stop-color="#070b18"/><stop offset=".3" stop-color="#1c2a55"/><stop offset=".45" stop-color="#5a6ea8"/><stop offset=".6" stop-color="#1a2650"/><stop offset="1" stop-color="#050812"/></linearGradient>
-      ${metal('pen-metal')}
-      <linearGradient id="pen-gold" x1="0" x2="1"><stop offset="0" stop-color="#8a6a22"/><stop offset=".45" stop-color="#f6df93"/><stop offset="1" stop-color="#7a5b1a"/></linearGradient>
-    </defs>
-    <rect x="6" y="2" width="28" height="150" rx="13" fill="url(#pen-lac)"/>
-    <path d="M28 18 h6 v104 c0 8 -5 9 -6 3 z" fill="url(#pen-metal)"/>
-    <rect x="5" y="140" width="30" height="12" rx="2" fill="url(#pen-metal)"/>
-    <path d="M7 154 h26 l-2 176 c-1 6 -21 6 -22 0 z" fill="url(#pen-lac)"/>
-    <path d="M11 334 h18 l-4 38 h-10 z" fill="#0d0d0d"/>
-    <rect x="12" y="330" width="16" height="5" fill="url(#pen-metal)"/>
-    <path d="M15 372 h10 l-2.5 30 L20 418 l-2.5 -16 z" fill="url(#pen-gold)"/>
-    <path d="M20 384 v30" stroke="#5a4515" stroke-width=".7"/>
-    <circle cx="20" cy="388" r="1.4" fill="#5a4515"/>
+  const stopwatch = () => {
+    let ticks = '';
+    for (let i = 0; i < 60; i++) {
+      const major = i % 5 === 0;
+      const [x1, y1] = polar(60, 92, 40, i * 6 - 90), [x2, y2] = polar(60, 92, major ? 34 : 37, i * 6 - 90);
+      ticks += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#222" stroke-width="${major ? 1.6 : 0.6}"/>`;
+    }
+    const [hx, hy] = polar(60, 92, 33, 50);
+    return `<svg viewBox="0 0 120 150" aria-hidden="true">
+      <defs>${metal('sw-metal')}</defs>
+      <rect x="52" y="6" width="16" height="10" rx="2" fill="url(#sw-metal)"/>
+      <rect x="55" y="15" width="10" height="12" fill="url(#sw-metal)"/>
+      <circle cx="60" cy="6" r="7" fill="none" stroke="url(#sw-metal)" stroke-width="3"/>
+      <rect x="92" y="34" width="10" height="9" rx="2" fill="url(#sw-metal)" transform="rotate(40 97 38)"/>
+      <circle cx="60" cy="92" r="52" fill="url(#sw-metal)"/>
+      <circle cx="60" cy="92" r="45" fill="#f4f2ec"/>
+      ${ticks}
+      <text x="60" y="66" font-family="'DM Mono', monospace" font-size="8" fill="#222" text-anchor="middle">60</text>
+      <text x="60" y="114" font-family="'Racing Sans One', sans-serif" font-size="7" fill="#ff5a1f" text-anchor="middle">6:47.3</text>
+      <line x1="60" y1="92" x2="${hx}" y2="${hy}" stroke="#ff3b1f" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="60" cy="92" r="3.5" fill="#222"/>
+    </svg>`;
+  };
+
+  // Rubber left on the asphalt
+  const skid = () => `<svg viewBox="0 0 1500 900" preserveAspectRatio="none" aria-hidden="true">
+    <defs><filter id="skid-blur"><feGaussianBlur stdDeviation="5"/></filter></defs>
+    <g fill="none" stroke="#000" stroke-linecap="round" filter="url(#skid-blur)">
+      <path d="M -40 760 C 300 700 520 560 780 520 S 1260 520 1560 380" stroke-width="26" opacity=".55"/>
+      <path d="M -40 820 C 300 760 520 620 780 580 S 1260 580 1560 440" stroke-width="26" opacity=".45"/>
+      <path d="M 60 120 C 380 180 620 260 900 250" stroke-width="18" opacity=".3"/>
+    </g>
   </svg>`;
 
   // A car-shaped key fob, seen from above
@@ -198,5 +215,5 @@ window.ART = (() => {
     <path d="M4 5 C10 9 20 16 27 20 C20 25 11 31 5 36 C5.5 26 4.5 15 4.5 4"/>
   </svg>`;
 
-  return { car, tacho, track, barcode, pen, key, arrow };
+  return { car, tacho, track, barcode, stopwatch, skid, key, arrow };
 })();

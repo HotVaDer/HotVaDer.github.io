@@ -1,4 +1,4 @@
-// Shared helpers + page chrome (contact card, footer, nav shortcuts into the notebook).
+// Shared helpers + page chrome (lap timer, paddock pass, footer, nav shortcuts into the notebook).
 
 window.SITE = (() => {
   const D = window.PORTFOLIO;
@@ -6,10 +6,10 @@ window.SITE = (() => {
     String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const links = [
-    D.email && { label: '/mail/', href: `mailto:${D.email}`, text: D.email },
-    D.phone && { label: '/tel/', href: `tel:${D.phone.replace(/[^\d+]/g, '')}`, text: D.phone },
-    { label: '/gh/', href: `https://github.com/${D.githubUser}`, text: `github.com/${D.githubUser}` },
-    D.linkedin && { label: '/in/', href: D.linkedin, text: D.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '') },
+    D.email && { label: 'Email', href: `mailto:${D.email}`, text: D.email },
+    D.phone && { label: 'Phone', href: `tel:${D.phone.replace(/[^\d+]/g, '')}`, text: D.phone },
+    { label: 'GitHub', href: `https://github.com/${D.githubUser}`, text: `github.com/${D.githubUser}` },
+    D.linkedin && { label: 'LinkedIn', href: D.linkedin, text: D.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '') },
   ].filter(Boolean);
 
   const linkAttrs = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '');
@@ -18,26 +18,30 @@ window.SITE = (() => {
 })();
 
 (() => {
+  const D = window.PORTFOLIO;
   const { esc, links, linkAttrs } = window.SITE;
 
-  // ---- Contact card (flips on hover, or on tap for touch screens) ----
-  document.getElementById('bcard-links').innerHTML = links
-    .map((l) => `<p><span>${l.label}</span><a href="${esc(l.href)}"${linkAttrs(l.href)}>${esc(l.text)}</a></p>`)
-    .join('');
-  document.getElementById('bcard-car').innerHTML = window.ART.car();
+  // ---- Hero lap timer: counts up and starts a new lap at the GT2 RS Nordschleife time ----
+  const lap = document.getElementById('lap');
+  const LAP_MS = 6 * 60e3 + 47.3e3;
+  const fmt = (ms) => {
+    const m = Math.floor(ms / 60e3), s = Math.floor((ms % 60e3) / 1e3), r = Math.floor(ms % 1e3);
+    return `${m}:${String(s).padStart(2, '0')}.${String(r).padStart(3, '0')}`;
+  };
+  let heroVisible = true;
+  new IntersectionObserver(([en]) => (heroVisible = en.isIntersecting)).observe(lap);
+  const t0 = performance.now();
+  (function tick(now) {
+    if (heroVisible) lap.textContent = fmt((now - t0) % LAP_MS);
+    requestAnimationFrame(tick);
+  })(t0);
 
-  const card = document.querySelector('.bcard');
-  const canHover = matchMedia('(hover: hover)').matches;
-  card.addEventListener('click', (e) => {
-    if (canHover || e.target.closest('a')) return;
-    card.classList.toggle('is-flipped');
-  });
-  card.addEventListener('keydown', (e) => {
-    if (e.target !== card || (e.key !== 'Enter' && e.key !== ' ')) return;
-    e.preventDefault();
-    card.classList.toggle('is-flipped');
-  });
-  document.getElementById('bcard-hint').textContent = canHover ? '*hover the card' : '*tap the card to flip it';
+  // ---- Paddock pass ----
+  document.getElementById('pass-photo').src = D.avatar;
+  document.getElementById('pass-links').innerHTML = links
+    .map((l) => `<a href="${esc(l.href)}"${linkAttrs(l.href)}><span>${l.label}</span><b>${esc(l.text)}</b></a>`)
+    .join('');
+  document.getElementById('pass-foot').insertAdjacentHTML('beforeend', window.ART.barcode(D.handle));
 
   // ---- Footer ----
   document.getElementById('foot-links').innerHTML = links
