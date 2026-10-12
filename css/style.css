@@ -515,7 +515,7 @@ button { font: inherit; color: inherit; }
 /* About, right page */
 .about-grid { display: grid; grid-template-columns: 10.5em 1fr; gap: 1.5em; align-items: start; margin-top: .6em; }
 .polaroid { position: relative; margin: 0; padding: .55em .55em 2.3em; background: #fff; box-shadow: 0 .25em .7em rgba(0,0,0,.25); transform: rotate(3deg); }
-.polaroid img, .polaroid__ph { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.polaroid img, .polaroid__ph { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 .polaroid img { filter: grayscale(.15) contrast(1.05); }
 .polaroid__ph { display: grid; place-items: center; background: #e9e3d6; font-family: var(--race); font-size: 3em; color: #c7bda6; }
 .polaroid figcaption { position: absolute; left: 0; right: 0; bottom: .3em; text-align: center; font-family: var(--hand); font-size: 1.3em; color: var(--ink); }
@@ -540,7 +540,8 @@ button { font: inherit; color: inherit; }
 
 /* Project pages */
 .shot { position: relative; margin: .5em 0 1em; padding: .45em; background: #fff; box-shadow: 0 .2em .6em rgba(0,0,0,.22); transform: rotate(-1.2deg); }
-.shot img, .shot__ph { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+/* height: auto lets the CSS aspect ratio win over the width/height attributes (which are only there to reserve space) */
+.shot img, .shot__ph { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .shot__ph {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   background: repeating-linear-gradient(-45deg, #efe9dc 0 .7em, #e7e0d0 .7em 1.4em);
