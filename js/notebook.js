@@ -89,8 +89,8 @@
         <figcaption>that's me</figcaption>
       </figure>
       <div>
-        <p class="p-kicker">toolbox</p>
-        <ul class="checklist">${D.skills.map((s) => `<li><span>${esc(s)}</span></li>`).join('')}</ul>
+        <p class="p-kicker">about me</p>
+        <ul class="checklist">${D.aboutMe.map((s) => `<li><span>${esc(s)}</span></li>`).join('')}</ul>
       </div>
     </div>
     <div class="doodle">${A.car({ sketch: true })}<p class="doodle__note">dream car ↑ GT2 RS<br>(working on it)</p></div>`);

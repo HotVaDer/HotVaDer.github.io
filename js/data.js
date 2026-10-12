@@ -19,7 +19,13 @@ window.PORTFOLIO = {
     'Lately that means university projects, startup experiments like PhysioPath, and small automations that save me time.',
   ],
 
-  skills: ['Python', 'Java', 'C', 'PHP', 'SQL', 'JavaScript', 'Selenium', 'LaTeX'],
+  // The list next to the photo on the about page
+  aboutMe: [
+    'studying Computer Science',
+    'calisthenics addict',
+    'cars, especially Porsches',
+    'passionate about excellent work',
+  ],
 
   // The boarding pass on the first page
   ticket: {
