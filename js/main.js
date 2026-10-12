@@ -6,12 +6,13 @@ window.SITE = (() => {
     String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const links = [
-    { label: '/gh/', href: `https://github.com/${D.githubUser}`, text: `github.com/${D.githubUser}` },
     D.email && { label: '/mail/', href: `mailto:${D.email}`, text: D.email },
+    D.phone && { label: '/tel/', href: `tel:${D.phone.replace(/[^\d+]/g, '')}`, text: D.phone },
+    { label: '/gh/', href: `https://github.com/${D.githubUser}`, text: `github.com/${D.githubUser}` },
     D.linkedin && { label: '/in/', href: D.linkedin, text: D.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '') },
   ].filter(Boolean);
 
-  const linkAttrs = (href) => (href.startsWith('mailto:') ? '' : ' target="_blank" rel="noopener"');
+  const linkAttrs = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '');
 
   return { esc, links, linkAttrs };
 })();

@@ -36,7 +36,7 @@ Or use the VS Code **Live Server** extension (recommended in `.vscode/`).
 ## Customize
 
 - Everything in the notebook comes from `js/data.js`. Each project gets its own page.
-- Set `email` and `linkedin` in `data.js`; they stay hidden until you do.
+- Contact links (`email`, `phone`, `linkedin`) live in `data.js`; any left empty stay hidden.
 - Add screenshots (16:9) to `assets/img/` and set each project's `image`.
 - The photo on the about page is your GitHub avatar (`avatar` in `data.js`).
 - The hero text lives in `index.html`.
