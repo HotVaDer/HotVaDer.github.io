@@ -2,16 +2,18 @@
 
 My personal portfolio, hosted with GitHub Pages at **https://hotvader.github.io**.
 
-Plain HTML, CSS and JS. There's no build step.
+Plain HTML, CSS and JS. There's no build step. The centrepiece is a GT2 RS-themed notebook on a desk: click it open and flip through the pages.
 
 ## Structure
 
 ```
-index.html        page layout and sections
-css/style.css     styles (light/dark theme tokens at the top)
-js/data.js        ← edit this for skills, featured projects and settings
-js/main.js        rendering, theme toggle, live GitHub repo list
-assets/img/       images (favicon, profile photo, project screenshots)
+index.html        hero, the desk + notebook, contact card, footer
+css/style.css     all styles (colour tokens at the top)
+js/data.js        ← edit this: bio, skills, projects, contact links, notes
+js/art.js         hand-drawn SVG art: the car, stickers, pen, key fob
+js/notebook.js    builds the notebook pages and runs the 3D page flips
+js/main.js        shared helpers, contact card, footer
+assets/img/       favicon, project screenshots
 404.html          not-found page
 ```
 
@@ -33,6 +35,8 @@ Or use the VS Code **Live Server** extension (recommended in `.vscode/`).
 
 ## Customize
 
-- Search the HTML for `TODO` to find the name, tagline, bio, email and social links.
-- Edit `js/data.js` for skills and featured projects.
-- Put a profile photo at `assets/img/profile.jpg` and replace the `.avatar-placeholder` div in `index.html`.
+- Everything in the notebook comes from `js/data.js`. Each project gets its own page.
+- Set `email` and `linkedin` in `data.js`; they stay hidden until you do.
+- Add screenshots (16:9) to `assets/img/` and set each project's `image`.
+- The photo on the about page is your GitHub avatar (`avatar` in `data.js`).
+- The hero text lives in `index.html`.
