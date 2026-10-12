@@ -103,13 +103,13 @@
       ${p.image
         ? `<img src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy">`
         : `<div class="shot__ph"><span>${initials(p.title)}</span><small>screenshot coming soon</small></div>`}
+      ${p.note ? `<div class="sticky">${esc(p.note)}</div>` : ''}
     </figure>
-    ${p.note ? `<div class="sticky">${esc(p.note)}</div>` : ''}
     <p class="p-text">${esc(p.description)}</p>
     <ul class="stamps">${(p.tags || []).map((t, j) => `<li style="--r:${j % 2 ? 2 : -2}deg">${esc(t)}</li>`).join('')}</ul>
     <p class="p-links">
       ${p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">→ the code</a>` : ''}
-      ${p.live ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">→ try it live</a>` : ''}
+      ${p.live ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">→ visit the site</a>` : ''}
     </p>`);
 
   const reposFace = () => paper('garage', `

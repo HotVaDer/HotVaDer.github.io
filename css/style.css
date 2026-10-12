@@ -505,7 +505,7 @@ button { font: inherit; color: inherit; }
 .shot__ph span { font-family: var(--race); font-size: 3.4em; line-height: 1; color: #c9bfa7; }
 .shot__ph small { font-family: var(--hand); font-size: 1.2em; color: #a2977e; }
 .sticky {
-  position: absolute; right: 1.1em; top: 13.6em; z-index: 3;
+  position: absolute; right: -.8em; bottom: -.5em; z-index: 3;
   width: 7.6em; padding: .55em .7em .7em;
   background: #ffe36e; color: #3d3300;
   font-family: var(--hand); font-size: 1.15em; line-height: 1.1;
