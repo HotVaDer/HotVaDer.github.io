@@ -230,6 +230,12 @@ button { font: inherit; color: inherit; }
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
 }
 .face--back { transform: rotateY(180deg); }
+/* Safari ignores backface-visibility for faces with transformed/filtered children
+   (the stickers), so also hide the side facing away, swapping at the halfway point
+   of the turn when the page is edge-on. */
+.face { transition: visibility 0s .45s; }
+.leaf.is-flipped > .face--front,
+.leaf:not(.is-flipped) > .face--back { visibility: hidden; }
 .no-anim, .no-anim * { transition: none !important; }
 
 /* Shading that sweeps across a page while it turns */
@@ -539,15 +545,20 @@ button { font: inherit; color: inherit; }
 /* ============ Contact card ============ */
 .contact { padding: 110px 16px 120px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .bcard { width: min(460px, 100%); aspect-ratio: 1.75; perspective: 1400px; cursor: pointer; border-radius: 6px; }
-.bcard__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+.bcard__inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.645,.045,.355,1); }
 @media (hover: hover) {
   .bcard:hover .bcard__inner, .bcard:focus-within .bcard__inner { transform: rotateY(180deg); }
+  .bcard:hover .bcard__front, .bcard:focus-within .bcard__front { visibility: hidden; }
+  .bcard:hover .bcard__back, .bcard:focus-within .bcard__back { visibility: visible; }
 }
 .bcard.is-flipped .bcard__inner { transform: rotateY(180deg); }
+.bcard.is-flipped .bcard__front { visibility: hidden; }
+.bcard.is-flipped .bcard__back { visibility: visible; }
 .bcard__face {
   position: absolute; inset: 0; overflow: hidden; border-radius: 6px;
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
   box-shadow: 0 30px 60px rgba(0,0,0,.6);
+  transition: visibility 0s .4s; /* same Safari workaround as the notebook pages: swap sides when edge-on */
 }
 .bcard__front {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -560,7 +571,7 @@ button { font: inherit; color: inherit; }
 .bcard__box strong { font-weight: 400; font-size: 1.15rem; }
 .bcard__handle { position: absolute; right: 6%; bottom: 7%; margin: 0; font-size: .85rem; color: #555; }
 .bcard__back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg); visibility: hidden;
   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   padding: 0 9%; text-align: left;
   font-family: var(--mono); font-size: clamp(.72rem, 2.6vw, .88rem);
@@ -613,5 +624,6 @@ button { font: inherit; color: inherit; }
     animation-iteration-count: 1 !important;
     transition-duration: .001s !important;
   }
+  .face, .bcard__face { transition-delay: 0s !important; }
   .speed { display: none; }
 }
