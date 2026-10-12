@@ -11,7 +11,7 @@ window.PORTFOLIO = {
   photo: 'assets/img/me.jpg',
   email: 'skyria05@ucy.ac.cy',
   phone: '+357 99 216265',
-  linkedin: '', // TODO: full LinkedIn URL (hidden until set)
+  linkedin: 'https://www.linkedin.com/in/stylianos-kyriakou-66a716300/',
 
   // TODO: make this sound like you
   bio: [
